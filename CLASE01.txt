@@ -1,0 +1,26 @@
+asegurar que estos 
+servicios este activos:
+OracleServiceXE
+OracleXETNSListener
+
+instance_name -> SID
+
+service_names -> SERVICE NAME
+
+Una app de servidor 
+Te pide
+SID y el Service Name
+
+connection remota
+conn system/oracle@172.17.105:1521/XE
+
+
+statement -> facilita  el sql injector
+se recominda usar para sentencias sin parametros
+
+preparedstatement -> utilizarlo para 
+sentencias con parametros
+
+callablestatement -> para precedimientos almacenados
+resulset -> es para obtener los resultados de las
+transacciones
