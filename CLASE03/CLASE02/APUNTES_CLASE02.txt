@@ -1,4 +1,0 @@
-ResulSet
-1 o 0 filas 			0 o mas filas
-if(rs.next()){			while(rs.next()){
-}				}
