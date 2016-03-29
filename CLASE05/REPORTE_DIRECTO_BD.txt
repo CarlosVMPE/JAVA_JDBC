@@ -1,0 +1,33 @@
+private void menuReporteClientesActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+        // FORMA DE VIEW DIRECTO A LA BD
+
+// Obteninendo el obj connnetion
+        Connection cn = null;
+        try {
+
+	cn = AccesoDB.getConnection();
+	
+        // parametros 
+	Map pars = new HashMap();
+        // El reporte
+        String fileRepo = "/pe/crvm/eurekacs/reports/repoCliente.jasper";
+        
+        InputStream ioRepo = Class.class.getResourceAsStream(fileRepo);
+           // Obtienes el reporte
+	JasperPrint jpRepo = JasperFillManager.fillReport(ioRepo, pars, cn);
+
+	// Visualizando el Reporte
+	JasperViewer viewer = new JasperViewer(jpRepo, false);
+	viewer.setTitle("Mi Reporte");
+	viewer.setVisible(true);
+
+        } catch (Exception ex) {
+            Dialogo.error(null, ex.getMessage());
+        } finally{
+            try {
+                cn.close();
+            } catch (Exception e) {
+            }
+        }
+
+    }  
